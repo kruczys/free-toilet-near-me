@@ -20,7 +20,7 @@ review accuracy of location, information on price, description etc.
   - 🥬 Leaflet, https://leafletjs.com/
   - 💀 React, https://pl.react.dev/
   - 🌬️ Tailwind, https://tailwindcss.com/
-  - 🐍 Django, https://www.djangoproject.com/
+  - 🔥 Firebase, https://firebase.google.com/
 
 ## Why?
 
