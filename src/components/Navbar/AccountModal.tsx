@@ -40,7 +40,11 @@ const AccountModal = ({ isUserLoggedIn }: Props) => {
         className="shadow-md p-8 text-xl"
         onClick={(e) => handleDialogClose(e)}
       >
-        <UserForms onCloseForm={() => dialog.current?.close()}></UserForms>
+        {isUserLoggedIn ? (
+          "account modal"
+        ) : (
+          <UserForms onCloseForm={() => dialog.current?.close()}></UserForms>
+        )}
       </dialog>
     </>
   );
