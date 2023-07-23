@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { IconContext } from "react-icons";
 import { BsFillPersonFill } from "react-icons/bs";
-import LoginForm from "./LoginForm";
+import UserForms from "./UserForms";
 
 interface Props {
   isUserLoggedIn: boolean;
@@ -40,7 +40,7 @@ const AccountModal = ({ isUserLoggedIn }: Props) => {
         className="shadow-md p-8 text-xl"
         onClick={(e) => handleDialogClose(e)}
       >
-        <LoginForm onCloseForm={() => dialog.current?.close()}></LoginForm>
+        <UserForms onCloseForm={() => dialog.current?.close()}></UserForms>
       </dialog>
     </IconContext.Provider>
   );
