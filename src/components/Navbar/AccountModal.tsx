@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { IconContext } from "react-icons";
+
 import { BsFillPersonFill } from "react-icons/bs";
 import UserForms from "./UserForms";
 
@@ -27,7 +27,7 @@ const AccountModal = ({ isUserLoggedIn }: Props) => {
   };
 
   return (
-    <IconContext.Provider value={{ size: "1.5em" }}>
+    <>
       <button
         onClick={() => dialog.current?.showModal()}
         className="flex items-center gap-1"
@@ -42,7 +42,7 @@ const AccountModal = ({ isUserLoggedIn }: Props) => {
       >
         <UserForms onCloseForm={() => dialog.current?.close()}></UserForms>
       </dialog>
-    </IconContext.Provider>
+    </>
   );
 };
 
