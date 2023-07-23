@@ -34,7 +34,7 @@ const Modal = ({ buttonContent, children }: Props) => {
       </button>
       <dialog
         ref={dialog}
-        className="shadow-md p-4 sm:p-8 text-xl"
+        className="shadow-md p-4 sm:p-8 text-xl modal"
         onClick={(e) => handleDialogClose(e)}
       >
         {children}
