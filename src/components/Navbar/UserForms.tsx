@@ -5,7 +5,7 @@ const UserForms = () => {
   const [activeForm, setActiveForm] = useState<"login" | "register">("login");
 
   return (
-    <div>
+    <>
       {activeForm === "login" ? <LoginForm></LoginForm> : "register form"}
       <div className="mt-2 text-xs font-extralight text-slate-500 text-center">
         {activeForm === "login" ? (
@@ -30,7 +30,7 @@ const UserForms = () => {
           </span>
         )}
       </div>
-    </div>
+    </>
   );
 };
 
