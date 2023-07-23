@@ -7,7 +7,7 @@ const UserForms = () => {
   return (
     <div>
       {activeForm === "login" ? <LoginForm></LoginForm> : "register form"}
-      <div className="mt-2 text-xs font-extralight text-slate-500">
+      <div className="mt-2 text-xs font-extralight text-slate-500 text-center">
         {activeForm === "login" ? (
           <span>
             Don't have an account yet?{" "}
