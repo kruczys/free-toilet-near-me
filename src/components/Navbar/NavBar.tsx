@@ -1,3 +1,4 @@
+import AccountModal from "./AccountModal";
 import SearchBar from "./SearchBar";
 
 const NavBar = () => {
@@ -9,6 +10,7 @@ const NavBar = () => {
       <SearchBar
         onSubmit={(locationText) => console.log(locationText)}
       ></SearchBar>
+      <AccountModal isUserLoggedIn={false}></AccountModal>
     </div>
   );
 };

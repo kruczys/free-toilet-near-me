@@ -18,7 +18,7 @@ const SearchBar = ({ onSubmit }: Props) => {
     <form
       onSubmit={handleSubmit}
       className="flex items-center w-full relative"
-      style={{ left: "-0.75rem" }}
+      style={{ left: "-0.5rem" }}
     >
       <button
         type="submit"
