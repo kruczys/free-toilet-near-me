@@ -22,14 +22,14 @@ const SearchBar = ({ onSubmit }: Props) => {
     >
       <button
         type="submit"
-        className="relative left-7 cursor-pointer"
+        className="relative left-9 cursor-pointer"
         onSubmit={handleSubmit}
       >
         <ImSearch></ImSearch>
       </button>
       <input
         ref={locationSearch}
-        className="rounded-xl border-2 pl-9 pr-3 py-1 w-full"
+        className="rounded-xl border-2 pl-11 pr-3 py-1 w-full"
         type="text"
         name="locationSearch"
         id="locationSearch"
