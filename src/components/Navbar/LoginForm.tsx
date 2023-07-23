@@ -1,10 +1,6 @@
 import { BsFillKeyFill, BsFillPersonFill } from "react-icons/bs";
 
-interface Props {
-  onCloseForm: () => void;
-}
-
-const LoginForm = ({ onCloseForm }: Props) => {
+const LoginForm = () => {
   return (
     <form>
       <div className="mb-4">
@@ -39,7 +35,6 @@ const LoginForm = ({ onCloseForm }: Props) => {
         <button
           type="submit"
           formMethod="dialog"
-          onClick={onCloseForm}
           className="bg-orange-900 px-2 py-1 text-white rounded"
         >
           Cancel
