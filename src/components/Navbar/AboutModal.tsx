@@ -10,17 +10,17 @@ const AboutModal = () => {
           <i className="ml-2">
             <BiSolidInfoCircle></BiSolidInfoCircle>
           </i>
-          <span className="whitespace-nowrap">About Us</span>
+          <span className="whitespace-nowrap hidden sm:block">About Us</span>
         </>
       }
     >
       <>
-        <div className="flex flex-row items-center gap-1">
+        <div className="flex flex-row items-center gap-2">
           <BsGithub></BsGithub>You can contribute{" "}
           <a
             href="https://github.com/kruczys/free-toilet-near-me"
             target="_blank"
-            className="font-bold"
+            className="contents font-bold"
           >
             here
           </a>

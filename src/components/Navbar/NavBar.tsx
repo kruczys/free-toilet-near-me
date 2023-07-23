@@ -7,7 +7,7 @@ const NavBar = () => {
   return (
     <IconContext.Provider value={{ size: "1.5em" }}>
       <div className="flex items-center px-5 py-4 shadow-md bg-slate-50">
-        <h1 className="text-3xl font-bold tracking-wide text-orange-900">
+        <h1 className="sm:text-3xl font-bold tracking-wide text-orange-900">
           FreeToilet
         </h1>
         <SearchBar

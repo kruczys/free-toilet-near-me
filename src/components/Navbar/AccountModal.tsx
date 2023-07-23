@@ -12,7 +12,9 @@ const AccountModal = ({ isUserLoggedIn }: Props) => {
       buttonContent={
         <>
           <BsFillPersonFill></BsFillPersonFill>
-          {isUserLoggedIn ? "userData" : "Login"}
+          <span className="hidden sm:block">
+            {isUserLoggedIn ? "userData" : "Login"}
+          </span>
         </>
       }
     >
