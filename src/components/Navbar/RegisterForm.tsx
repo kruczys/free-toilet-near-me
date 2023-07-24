@@ -30,7 +30,7 @@ const RegisterForm = () => {
         <label htmlFor="userNameInput" className="block mb-1">
           <div className="flex items-center gap-1">
             <BsFillPersonFill></BsFillPersonFill>
-            UserName
+            Username
           </div>
         </label>
         <input
