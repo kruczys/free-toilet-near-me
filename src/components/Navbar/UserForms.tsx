@@ -1,12 +1,17 @@
 import { useState } from "react";
 import LoginForm from "./LoginForm";
+import RegisterForm from "./RegisterForm";
 
 const UserForms = () => {
   const [activeForm, setActiveForm] = useState<"login" | "register">("login");
 
   return (
     <>
-      {activeForm === "login" ? <LoginForm></LoginForm> : "register form"}
+      {activeForm === "login" ? (
+        <LoginForm></LoginForm>
+      ) : (
+        <RegisterForm></RegisterForm>
+      )}
       <div className="mt-2 text-xs font-extralight text-slate-500 text-center">
         {activeForm === "login" ? (
           <span>
