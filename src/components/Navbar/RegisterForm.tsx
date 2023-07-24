@@ -7,6 +7,7 @@ import { RxCross1 } from "react-icons/rx";
 import PasswordChecklist from "react-password-checklist";
 import { z } from "zod";
 import userSchema from "../../schemas/UserSchema";
+import FormInput from "../common/FormInput";
 
 type FormData = z.infer<typeof userSchema>;
 
@@ -16,80 +17,54 @@ const RegisterForm = () => {
 
   const {
     register,
+    reset,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm<FormData>({ resolver: zodResolver(userSchema) });
 
   const submitAction = (data: FieldValues) => {
     console.log("form submitted", data);
+    reset();
   };
 
   return (
     <form onSubmit={handleSubmit(submitAction)}>
-      <div className="flex flex-col mb-4">
-        <label htmlFor="userNameInput" className="block mb-1">
-          <div className="flex items-center gap-1">
-            <BsFillPersonFill></BsFillPersonFill>
-            Username
-          </div>
-        </label>
-        <input
-          {...register("username")}
-          type="text"
-          id="userNameInput"
-          className="border-2 border-black rounded px-2 py-1 focus:rounded focus:outline-none focus:border-orange-900"
-        />
-        {errors.username && (
-          <p className="text-sm text-red-500">{errors.username.message}</p>
-        )}
-      </div>
-      <div className="flex flex-col mb-4">
-        <label htmlFor="emailInput" className="block mb-1">
-          <div className="flex items-center gap-1">
-            <AiOutlineMail></AiOutlineMail>
-            E-Mail
-          </div>
-        </label>
-        <input
-          {...register("email")}
-          type="email"
-          id="emailInput"
-          className="border-2 border-black rounded px-2 py-1 focus:rounded focus:outline-none focus:border-orange-900"
-        />
-        {errors.email && (
-          <p className="text-sm text-red-500">{errors.email.message}</p>
-        )}
-      </div>
-      <div className="flex flex-col mb-4">
-        <label htmlFor="passwordInput" className="block mb-1">
-          <div className="flex items-center gap-1">
-            <BsFillKeyFill></BsFillKeyFill>
-            Password
-          </div>
-        </label>
-        <input
-          {...register("password")}
-          onChange={(e) => setPassword(e.target.value)}
-          type="password"
-          id="passwordInput"
-          className="border-2 border-black rounded px-2 py-1 focus:rounded focus:outline-none focus:border-orange-900"
-        />
-      </div>
-      <div className="flex flex-col mb-4">
-        <label htmlFor="confirmPasswordInput" className="block mb-1">
-          <div className="flex items-center gap-1">
-            <BsFillKeyFill></BsFillKeyFill>
-            Confirm password
-          </div>
-        </label>
-        <input
-          {...register("confirmPassword")}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          type="password"
-          id="confirmPasswordInput"
-          className="border-2 border-black rounded px-2 py-1 focus:rounded focus:outline-none focus:border-orange-900"
-        />
-      </div>
+      <FormInput
+        formRegister={register("username")}
+        id="registerUserName"
+        type="text"
+        errorMessage={errors.username && errors.username.message}
+      >
+        <BsFillPersonFill></BsFillPersonFill>
+        Username
+      </FormInput>
+      <FormInput
+        formRegister={register("email")}
+        id="registerEmail"
+        type="email"
+        errorMessage={errors.email && errors.email.message}
+      >
+        <AiOutlineMail></AiOutlineMail>
+        E-mail
+      </FormInput>
+      <FormInput
+        formRegister={register("password")}
+        id="registerPassword"
+        type="password"
+        onChange={(data) => setPassword(data)}
+      >
+        <BsFillKeyFill></BsFillKeyFill>
+        Password
+      </FormInput>
+      <FormInput
+        formRegister={register("confirmPassword")}
+        id="registerConfirmPassword"
+        type="password"
+        onChange={(data) => setConfirmPassword(data)}
+      >
+        <BsFillKeyFill></BsFillKeyFill>
+        Confirm password
+      </FormInput>
       <div className="mb-6 text-xs">
         <PasswordChecklist
           rules={[
