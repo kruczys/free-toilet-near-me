@@ -1,13 +1,19 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
-import { AiOutlineMail } from "react-icons/ai";
+import { AiOutlineCheck, AiOutlineMail } from "react-icons/ai";
 import { BsFillKeyFill, BsFillPersonFill } from "react-icons/bs";
+import { RxCross1 } from "react-icons/rx";
+import PasswordChecklist from "react-password-checklist";
 import { z } from "zod";
 import userSchema from "../../schemas/UserSchema";
 
 type FormData = z.infer<typeof userSchema>;
 
 const RegisterForm = () => {
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
   const {
     register,
     handleSubmit,
@@ -15,7 +21,7 @@ const RegisterForm = () => {
   } = useForm<FormData>({ resolver: zodResolver(userSchema) });
 
   const submitAction = (data: FieldValues) => {
-    console.log(data);
+    console.log("form submitted", data);
   };
 
   return (
@@ -54,7 +60,7 @@ const RegisterForm = () => {
           <p className="text-sm text-red-500">{errors.email.message}</p>
         )}
       </div>
-      <div className="mb-6">
+      <div className="mb-4">
         <label htmlFor="passwordInput" className="block mb-1">
           <div className="flex items-center gap-1">
             <BsFillKeyFill></BsFillKeyFill>
@@ -63,12 +69,13 @@ const RegisterForm = () => {
         </label>
         <input
           {...register("password")}
+          onChange={(e) => setPassword(e.target.value)}
           type="password"
           id="passwordInput"
           className="border-2 border-black rounded px-2 py-1 focus:rounded focus:outline-none focus:border-orange-900"
         />
       </div>
-      <div className="mb-6">
+      <div className="mb-4">
         <label htmlFor="confirmPasswordInput" className="block mb-1">
           <div className="flex items-center gap-1">
             <BsFillKeyFill></BsFillKeyFill>
@@ -77,9 +84,37 @@ const RegisterForm = () => {
         </label>
         <input
           {...register("confirmPassword")}
+          onChange={(e) => setConfirmPassword(e.target.value)}
           type="password"
           id="confirmPasswordInput"
           className="border-2 border-black rounded px-2 py-1 focus:rounded focus:outline-none focus:border-orange-900"
+        />
+      </div>
+      <div className="mb-6 text-xs">
+        <PasswordChecklist
+          rules={[
+            "minLength",
+            "lowercase",
+            "capital",
+            "number",
+            "specialChar",
+            "match",
+          ]}
+          minLength={8}
+          value={password}
+          valueAgain={confirmPassword}
+          iconComponents={{
+            ValidIcon: (
+              <div className="mr-1">
+                <AiOutlineCheck />
+              </div>
+            ),
+            InvalidIcon: (
+              <div className="mr-1">
+                <RxCross1 />
+              </div>
+            ),
+          }}
         />
       </div>
       <div className="flex justify-around">
