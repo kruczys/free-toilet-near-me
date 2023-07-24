@@ -26,7 +26,7 @@ const RegisterForm = () => {
 
   return (
     <form onSubmit={handleSubmit(submitAction)}>
-      <div className="mb-4">
+      <div className="flex flex-col mb-4">
         <label htmlFor="userNameInput" className="block mb-1">
           <div className="flex items-center gap-1">
             <BsFillPersonFill></BsFillPersonFill>
@@ -43,7 +43,7 @@ const RegisterForm = () => {
           <p className="text-sm text-red-500">{errors.username.message}</p>
         )}
       </div>
-      <div className="mb-4">
+      <div className="flex flex-col mb-4">
         <label htmlFor="emailInput" className="block mb-1">
           <div className="flex items-center gap-1">
             <AiOutlineMail></AiOutlineMail>
@@ -60,7 +60,7 @@ const RegisterForm = () => {
           <p className="text-sm text-red-500">{errors.email.message}</p>
         )}
       </div>
-      <div className="mb-4">
+      <div className="flex flex-col mb-4">
         <label htmlFor="passwordInput" className="block mb-1">
           <div className="flex items-center gap-1">
             <BsFillKeyFill></BsFillKeyFill>
@@ -75,7 +75,7 @@ const RegisterForm = () => {
           className="border-2 border-black rounded px-2 py-1 focus:rounded focus:outline-none focus:border-orange-900"
         />
       </div>
-      <div className="mb-4">
+      <div className="flex flex-col mb-4">
         <label htmlFor="confirmPasswordInput" className="block mb-1">
           <div className="flex items-center gap-1">
             <BsFillKeyFill></BsFillKeyFill>

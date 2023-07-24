@@ -9,7 +9,7 @@ const LoginForm = () => {
         console.log("form submitted");
       }}
     >
-      <div className="mb-4">
+      <div className="flex flex-col mb-4">
         <label htmlFor="loginInput" className="block mb-1">
           <div className="flex items-center gap-1">
             <BsFillPersonFill></BsFillPersonFill>
@@ -23,7 +23,7 @@ const LoginForm = () => {
           className="border-2 border-black rounded px-2 py-1 focus:rounded focus:outline-none focus:border-orange-900"
         />
       </div>
-      <div className="mb-6">
+      <div className="flex flex-col mb-6">
         <label htmlFor="passwordInput" className="block mb-1">
           <div className="flex items-center gap-1">
             <BsFillKeyFill></BsFillKeyFill>
