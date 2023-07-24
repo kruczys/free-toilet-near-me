@@ -9,7 +9,15 @@ import { z } from "zod";
 import userSchema from "../../schemas/UserSchema";
 import FormInput from "../common/FormInput";
 
-type FormData = z.infer<typeof userSchema>;
+const schema = userSchema.refine(
+  ({ password, confirmPassword }) => password === confirmPassword,
+  {
+    message: "passwords don't match",
+    path: ["confirmPassword"],
+  },
+);
+
+type FormData = z.infer<typeof schema>;
 
 const RegisterForm = () => {
   const [password, setPassword] = useState("");
@@ -20,7 +28,7 @@ const RegisterForm = () => {
     reset,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({ resolver: zodResolver(userSchema) });
+  } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   const submitAction = (data: FieldValues) => {
     console.log("form submitted", data);
@@ -31,7 +39,7 @@ const RegisterForm = () => {
     <form onSubmit={handleSubmit(submitAction)}>
       <FormInput
         formRegister={register("username")}
-        id="registerUserName"
+        id="registerUsername"
         type="text"
         errorMessage={errors.username && errors.username.message}
       >

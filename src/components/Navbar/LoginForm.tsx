@@ -1,42 +1,46 @@
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FieldValues, useForm } from "react-hook-form";
 import { BsFillKeyFill, BsFillPersonFill } from "react-icons/bs";
+import { z } from "zod";
+import userSchema from "../../schemas/UserSchema";
+import FormInput from "../common/FormInput";
+
+const schema = userSchema.pick({ username: true, password: true });
+
+type FormData = z.infer<typeof schema>;
 
 const LoginForm = () => {
+  const { register, reset, handleSubmit } = useForm<FormData>({
+    resolver: zodResolver(schema),
+  });
+
+  const submitAction = (data: FieldValues) => {
+    console.log("form submitted", data);
+    reset();
+  };
+
+  const submitFailAction = () => {
+    console.log("form error");
+  };
+
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        document.querySelector<HTMLDialogElement>(".modal")?.close();
-        console.log("form submitted");
-      }}
-    >
-      <div className="flex flex-col mb-4">
-        <label htmlFor="loginInput" className="block mb-1">
-          <div className="flex items-center gap-1">
-            <BsFillPersonFill></BsFillPersonFill>
-            Login
-          </div>
-        </label>
-        <input
-          type="text"
-          name="loginInput"
-          id="loginInput"
-          className="border-2 border-black rounded px-2 py-1 focus:rounded focus:outline-none focus:border-orange-900"
-        />
-      </div>
-      <div className="flex flex-col mb-6">
-        <label htmlFor="passwordInput" className="block mb-1">
-          <div className="flex items-center gap-1">
-            <BsFillKeyFill></BsFillKeyFill>
-            Password
-          </div>
-        </label>
-        <input
-          type="password"
-          name="passwordInput"
-          id="passwordInput"
-          className="border-2 border-black rounded px-2 py-1 focus:rounded focus:outline-none focus:border-orange-900"
-        />
-      </div>
+    <form onSubmit={handleSubmit(submitAction, submitFailAction)}>
+      <FormInput
+        formRegister={register("username")}
+        id="loginUsername"
+        type="text"
+      >
+        <BsFillPersonFill></BsFillPersonFill>
+        Login
+      </FormInput>
+      <FormInput
+        formRegister={register("password")}
+        id="loginPassword"
+        type="password"
+      >
+        <BsFillKeyFill></BsFillKeyFill>
+        Password
+      </FormInput>
       <div className="flex justify-around">
         <button
           type="button"
