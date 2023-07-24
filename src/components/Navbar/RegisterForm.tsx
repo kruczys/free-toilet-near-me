@@ -28,6 +28,7 @@ const RegisterForm = () => {
           </div>
         </label>
         <input
+          {...register("username")}
           type="text"
           id="userNameInput"
           className="border-2 border-black rounded px-2 py-1 focus:rounded focus:outline-none focus:border-orange-900"
@@ -41,7 +42,8 @@ const RegisterForm = () => {
           </div>
         </label>
         <input
-          type="text"
+          {...register("email")}
+          type="email"
           id="emailInput"
           className="border-2 border-black rounded px-2 py-1 focus:rounded focus:outline-none focus:border-orange-900"
         />
@@ -54,6 +56,7 @@ const RegisterForm = () => {
           </div>
         </label>
         <input
+          {...register("password")}
           type="password"
           id="passwordInput"
           className="border-2 border-black rounded px-2 py-1 focus:rounded focus:outline-none focus:border-orange-900"
@@ -67,6 +70,7 @@ const RegisterForm = () => {
           </div>
         </label>
         <input
+          {...register("confirmPassword")}
           type="password"
           id="confirmPasswordInput"
           className="border-2 border-black rounded px-2 py-1 focus:rounded focus:outline-none focus:border-orange-900"
@@ -94,8 +98,3 @@ const RegisterForm = () => {
 };
 
 export default RegisterForm;
-// nazwa usera
-// email
-// haslo 1
-// haslo 2
-//
