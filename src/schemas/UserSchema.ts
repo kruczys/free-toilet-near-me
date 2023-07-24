@@ -26,7 +26,7 @@ const userSchema = z
       ),
   })
   .refine(({ password, confirmPassword }) => password === confirmPassword, {
-    message: "Passwords don't match",
+    message: "passwords don't match",
     path: ["confirmPassword"],
   });
 
