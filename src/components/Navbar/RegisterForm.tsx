@@ -33,6 +33,9 @@ const RegisterForm = () => {
           id="userNameInput"
           className="border-2 border-black rounded px-2 py-1 focus:rounded focus:outline-none focus:border-orange-900"
         />
+        {errors.username && (
+          <p className="text-sm text-red-500">{errors.username.message}</p>
+        )}
       </div>
       <div className="mb-4">
         <label htmlFor="emailInput" className="block mb-1">
@@ -47,6 +50,9 @@ const RegisterForm = () => {
           id="emailInput"
           className="border-2 border-black rounded px-2 py-1 focus:rounded focus:outline-none focus:border-orange-900"
         />
+        {errors.email && (
+          <p className="text-sm text-red-500">{errors.email.message}</p>
+        )}
       </div>
       <div className="mb-6">
         <label htmlFor="passwordInput" className="block mb-1">
