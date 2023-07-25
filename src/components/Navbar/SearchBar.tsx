@@ -15,21 +15,17 @@ const SearchBar = ({ onSubmit }: Props) => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex items-center w-full relative"
-      style={{ left: "-0.75rem" }}
-    >
+    <form onSubmit={handleSubmit} className="flex items-center w-full relative">
       <button
         type="submit"
-        className="relative left-9 cursor-pointer"
+        className="absolute pl-2 cursor-pointer"
         aria-label="search"
       >
         <ImSearch></ImSearch>
       </button>
       <input
         ref={locationSearch}
-        className="rounded-xl border-2 pl-11 pr-3 py-1 w-full"
+        className="rounded-xl border-2 px-2 pl-9 py-1 w-full"
         type="text"
         name="locationSearch"
         id="locationSearch"

@@ -7,9 +7,7 @@ const AboutModal = () => {
     <Modal
       buttonContent={
         <>
-          <i className="ml-2">
-            <BiSolidInfoCircle></BiSolidInfoCircle>
-          </i>
+          <BiSolidInfoCircle></BiSolidInfoCircle>
           <span className="whitespace-nowrap hidden sm:block">About Us</span>
         </>
       }
