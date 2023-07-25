@@ -2,14 +2,21 @@ root = true
 
 [*.py]
 indent_style = tab
-indent_size = 4
+indent_size = 2
 charset = "utf-8"
 trim_trailing_whitespace = true
 insert_final_newline = true
 
 [*.ts]
 indent_style = space
-indent_size = 8
+indent_size = 2
 charset = "utf-8"
 trim_trailing_whitespace = true
-insert_final_newline = false
+insert_final_newline = true
+
+[*.tsx]
+indent_style = space
+indent_size = 2
+charset = "utf-8"
+trim_trailing_whitespace = true
+insert_final_newline = true
