@@ -18,7 +18,7 @@ const UserForms = () => {
   return (
     <>
       {FormComponent[activeForm]}
-      <div className="mt-2 text-xs font-extralight text-slate-500 text-center">
+      <div className="mt-2 text-center text-xs font-extralight text-slate-500">
         <span>
           {activeForm === FormType.Login
             ? "Don't have an account yet?"

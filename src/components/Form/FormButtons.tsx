@@ -9,7 +9,7 @@ const FormButtons = ({ children }: Props) => {
     <div className="flex justify-around">
       <button
         type="button"
-        className="bg-orange-900 px-2 py-1 text-white rounded"
+        className="rounded bg-orange-900 px-2 py-1 text-white"
         onClick={() =>
           document.querySelector<HTMLDialogElement>(".modal")?.close()
         }
@@ -18,7 +18,7 @@ const FormButtons = ({ children }: Props) => {
       </button>
       <button
         type="submit"
-        className="bg-orange-900 px-2 py-1 text-white rounded"
+        className="rounded bg-orange-900 px-2 py-1 text-white"
       >
         {children}
       </button>

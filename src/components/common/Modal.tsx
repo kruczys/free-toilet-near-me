@@ -36,7 +36,7 @@ const Modal = ({ buttonContent, buttonAriaLabel, children }: Props) => {
       </button>
       <dialog
         ref={dialog}
-        className="shadow-md p-4 sm:px-8 text-xl modal"
+        className="modal p-4 text-xl shadow-md sm:px-8"
         onClick={(e) => handleDialogClose(e)}
       >
         {children}

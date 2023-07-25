@@ -19,8 +19,8 @@ const FormInput = ({
   children,
 }: Props) => {
   return (
-    <div className="flex flex-col mb-4">
-      <label htmlFor={id} className="flex items-center gap-1 mb-1">
+    <div className="mb-4 flex flex-col">
+      <label htmlFor={id} className="mb-1 flex items-center gap-1">
         {children}
       </label>
       <input
@@ -28,7 +28,7 @@ const FormInput = ({
         id={id}
         type={type}
         onChange={(e) => onChange && onChange(e.target.value)}
-        className="text-sm border-2 border-black rounded px-2 py-1 focus:rounded focus:outline-none focus:border-orange-900"
+        className="rounded border-2 border-black px-2 py-1 text-sm focus:rounded focus:border-orange-900 focus:outline-none"
       />
       {errorMessage && <p className="text-xs text-red-500">{errorMessage}</p>}
     </div>

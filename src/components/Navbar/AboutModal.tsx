@@ -8,7 +8,7 @@ const AboutModal = () => {
       buttonContent={
         <>
           <BiSolidInfoCircle></BiSolidInfoCircle>
-          <span className="whitespace-nowrap hidden sm:block">About Us</span>
+          <span className="hidden whitespace-nowrap sm:block">About Us</span>
         </>
       }
       buttonAriaLabel="about us"
