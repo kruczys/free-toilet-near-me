@@ -1,13 +1,12 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
-import { AiOutlineCheck, AiOutlineMail } from "react-icons/ai";
+import { AiOutlineMail } from "react-icons/ai";
 import { BsFillKeyFill, BsFillPersonFill } from "react-icons/bs";
-import { RxCross1 } from "react-icons/rx";
-import PasswordChecklist from "react-password-checklist";
 import { z } from "zod";
 import userSchema from "../../schemas/UserSchema";
 import FormInput from "../common/FormInput";
+import PasswordCheckList from "./PasswordCheckList";
 
 const schema = userSchema.refine(
   ({ password, confirmPassword }) => password === confirmPassword,
@@ -32,7 +31,10 @@ const RegisterForm = () => {
 
   const submitAction = (data: FieldValues) => {
     console.log("form submitted", data);
+
     reset();
+    setPassword("");
+    setConfirmPassword("");
   };
 
   return (
@@ -73,33 +75,19 @@ const RegisterForm = () => {
         <BsFillKeyFill></BsFillKeyFill>
         Confirm password
       </FormInput>
-      <div className="mb-6 text-xs">
-        <PasswordChecklist
-          rules={[
-            "minLength",
-            "lowercase",
-            "capital",
-            "number",
-            "specialChar",
-            "match",
-          ]}
-          minLength={8}
-          value={password}
-          valueAgain={confirmPassword}
-          iconComponents={{
-            ValidIcon: (
-              <div className="mr-1">
-                <AiOutlineCheck />
-              </div>
-            ),
-            InvalidIcon: (
-              <div className="mr-1">
-                <RxCross1 />
-              </div>
-            ),
-          }}
-        />
-      </div>
+      <PasswordCheckList
+        rules={[
+          "minLength",
+          "lowercase",
+          "capital",
+          "number",
+          "specialChar",
+          "match",
+        ]}
+        minLength={8}
+        password={password}
+        confirmPassword={confirmPassword}
+      ></PasswordCheckList>
       <div className="flex justify-around">
         <button
           type="button"
