@@ -1,18 +1,18 @@
 {
-    "author": {
-        "name": "Konrad Kreczo",
-        "email": ""
+  "author": {
+    "name": "Konrad Kreczo",
+    "email": ""
+  },
+  "contributors": [
+    {
+      "name": "Paweł Koziczkowiski",
+      "email": ""
     },
-    "contributors": [
-        {
-            "name": "Paweł Koziczkowiski",
-            "email": ""
-        },
-        {
-            "name": "Julian Jaroszyński",
-            "email": "jaroszynskijulian@gmail.com"
-        }
-    ],
+    {
+      "name": "Julian Jaroszyński",
+      "email": "jaroszynskijulian@gmail.com"
+    }
+  ],
   "name": "free-toilet-near-me",
   "private": true,
   "version": "0.0.0",
