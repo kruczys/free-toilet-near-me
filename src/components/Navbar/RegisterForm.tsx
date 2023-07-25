@@ -5,9 +5,9 @@ import { AiOutlineMail } from "react-icons/ai";
 import { BsFillKeyFill, BsFillPersonFill } from "react-icons/bs";
 import { z } from "zod";
 import userSchema from "../../schemas/UserSchema";
-import FormInput from "../common/FormInput";
-import FormButtons from "./FormButtons";
-import PasswordCheckList from "./PasswordCheckList";
+import FormButtons from "../Form/FormButtons";
+import FormInput from "../Form/FormInput";
+import PasswordCheckList from "../Form/PasswordCheckList";
 
 const schema = userSchema.refine(
   ({ password, confirmPassword }) => password === confirmPassword,

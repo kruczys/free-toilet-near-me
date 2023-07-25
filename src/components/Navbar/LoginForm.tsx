@@ -3,8 +3,8 @@ import { FieldValues, useForm } from "react-hook-form";
 import { BsFillKeyFill, BsFillPersonFill } from "react-icons/bs";
 import { z } from "zod";
 import userSchema from "../../schemas/UserSchema";
-import FormInput from "../common/FormInput";
-import FormButtons from "./FormButtons";
+import FormButtons from "../Form/FormButtons";
+import FormInput from "../Form/FormInput";
 
 const schema = userSchema.pick({ username: true, password: true });
 
