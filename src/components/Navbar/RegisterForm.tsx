@@ -38,8 +38,12 @@ const RegisterForm = () => {
     setConfirmPassword("");
   };
 
+  const submitFailAction = () => {
+    console.log("form error");
+  };
+
   return (
-    <form onSubmit={handleSubmit(submitAction)}>
+    <form onSubmit={handleSubmit(submitAction, submitFailAction)}>
       <FormInput
         formRegister={register("username")}
         id="registerUsername"
