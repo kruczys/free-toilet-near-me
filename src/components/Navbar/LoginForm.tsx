@@ -4,6 +4,7 @@ import { BsFillKeyFill, BsFillPersonFill } from "react-icons/bs";
 import { z } from "zod";
 import userSchema from "../../schemas/UserSchema";
 import FormInput from "../common/FormInput";
+import FormButtons from "./FormButtons";
 
 const schema = userSchema.pick({ username: true, password: true });
 
@@ -41,23 +42,7 @@ const LoginForm = () => {
         <BsFillKeyFill></BsFillKeyFill>
         Password
       </FormInput>
-      <div className="flex justify-around">
-        <button
-          type="button"
-          className="bg-orange-900 px-2 py-1 text-white rounded"
-          onClick={() =>
-            document.querySelector<HTMLDialogElement>(".modal")?.close()
-          }
-        >
-          Cancel
-        </button>
-        <button
-          type="submit"
-          className="bg-orange-900 px-2 py-1 text-white rounded"
-        >
-          Login
-        </button>
-      </div>
+      <FormButtons>Login</FormButtons>
     </form>
   );
 };

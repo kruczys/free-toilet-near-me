@@ -6,6 +6,7 @@ import { BsFillKeyFill, BsFillPersonFill } from "react-icons/bs";
 import { z } from "zod";
 import userSchema from "../../schemas/UserSchema";
 import FormInput from "../common/FormInput";
+import FormButtons from "./FormButtons";
 import PasswordCheckList from "./PasswordCheckList";
 
 const schema = userSchema.refine(
@@ -88,23 +89,7 @@ const RegisterForm = () => {
         password={password}
         confirmPassword={confirmPassword}
       ></PasswordCheckList>
-      <div className="flex justify-around">
-        <button
-          type="button"
-          className="bg-orange-900 px-2 py-1 text-white rounded"
-          onClick={() =>
-            document.querySelector<HTMLDialogElement>(".modal")?.close()
-          }
-        >
-          Cancel
-        </button>
-        <button
-          type="submit"
-          className="bg-orange-900 px-2 py-1 text-white rounded"
-        >
-          Register
-        </button>
-      </div>
+      <FormButtons>Register</FormButtons>
     </form>
   );
 };
