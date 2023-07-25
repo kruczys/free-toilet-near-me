@@ -24,6 +24,7 @@ const SearchBar = ({ onSubmit }: Props) => {
         type="submit"
         className="relative left-9 cursor-pointer"
         onSubmit={handleSubmit}
+        aria-label="search"
       >
         <ImSearch></ImSearch>
       </button>

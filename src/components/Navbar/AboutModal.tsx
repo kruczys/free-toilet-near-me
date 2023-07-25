@@ -13,6 +13,7 @@ const AboutModal = () => {
           <span className="whitespace-nowrap hidden sm:block">About Us</span>
         </>
       }
+      buttonAriaLabel="about us"
     >
       <div className="flex flex-row items-center gap-2">
         <BsGithub></BsGithub>You can contribute{" "}

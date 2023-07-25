@@ -2,10 +2,11 @@ import { ReactNode, useRef } from "react";
 
 interface Props {
   buttonContent: ReactNode;
+  buttonAriaLabel?: string;
   children: ReactNode;
 }
 
-const Modal = ({ buttonContent, children }: Props) => {
+const Modal = ({ buttonContent, buttonAriaLabel, children }: Props) => {
   const dialog = useRef<HTMLDialogElement>(null);
 
   const handleDialogClose = (
@@ -29,6 +30,7 @@ const Modal = ({ buttonContent, children }: Props) => {
       <button
         onClick={() => dialog.current?.showModal()}
         className="flex items-center gap-1"
+        aria-label={buttonAriaLabel}
       >
         {buttonContent}
       </button>

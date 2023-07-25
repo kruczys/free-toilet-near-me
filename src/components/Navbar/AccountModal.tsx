@@ -17,6 +17,7 @@ const AccountModal = ({ isUserLoggedIn }: Props) => {
           </span>
         </>
       }
+      buttonAriaLabel={isUserLoggedIn ? "userData" : "Login"}
     >
       {isUserLoggedIn ? "account modal" : <UserForms></UserForms>}
     </Modal>
