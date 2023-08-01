@@ -1,0 +1,18 @@
+{
+  "toilets": [
+    {
+      "id": 1,
+      "geolocation": [54.3829624299007, 18.60546116887902],
+      "name": "Galeria Metropolia",
+      "rating": 0.8,
+      "isFree": true
+    },
+    {
+      "id": 2,
+      "geolocation": [54.378195185098654, 18.606956602949094],
+      "name": "Galeria Manhattan",
+      "rating": 0.9,
+      "isFree": true
+    }
+  ]
+}

@@ -1,16 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
 const MainMap = () => {
-  const markers = [
-    {
-      geolocation: { lat: 54.3829624299007, lng: 18.60546116887902 },
-      popup: "This will be a beatiful component",
-    },
-    {
-      geolocation: { lat: 54.378195185098654, lng: 18.606956602949094 },
-      popup: "This will be a beatiful component",
-    },
-  ];
+  const markers = [];
   const centerCords = [54.38528573727253, 18.609002982471225];
 
   return (
