@@ -22,7 +22,11 @@ const MainMap = () => {
           <Popup>
             <h2 className="text-xl">{toilet.name}</h2>
             <p>{toilet.isFree ? "Free to use" : "Pay to use"}</p>
-            <a href="google.com">Nawiguj</a>
+            <a
+              href={`https://www.google.com/maps/dir/?api=1&destination=${toilet.geolocation[0]}%2C${toilet.geolocation[1]}`}
+            >
+              Directions
+            </a>
           </Popup>
         </Marker>
       ))}
