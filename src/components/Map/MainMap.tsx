@@ -1,7 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import * as toiletData from "../../Data/kibelinfo.json";
 
 const MainMap = () => {
-  const markers = [];
   const centerCords = [54.38528573727253, 18.609002982471225];
 
   return (
@@ -14,9 +14,16 @@ const MainMap = () => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {markers.map((marker) => (
-        <Marker position={marker.geolocation}>
-          <Popup>{marker.popup}</Popup>
+      {toiletData.toilets.map((toilet) => (
+        <Marker
+          key={toilet.id}
+          position={{ lat: toilet.geolocation[0], lng: toilet.geolocation[1] }}
+        >
+          <Popup>
+            <h2 className="text-xl">{toilet.name}</h2>
+            <p>{toilet.isFree ? "Free to use" : "Pay to use"}</p>
+            <a href="google.com">Nawiguj</a>
+          </Popup>
         </Marker>
       ))}
     </MapContainer>
