@@ -13,6 +13,13 @@
       "name": "Galeria Manhattan",
       "rating": 0.9,
       "isFree": true
+    },
+    {
+      "id": 3,
+      "geolocation": [54.40511835617577, 18.58794699348846],
+      "name": "Galeria Alfa Centrum",
+      "rating": 0.3,
+      "isFree": true
     }
   ]
 }

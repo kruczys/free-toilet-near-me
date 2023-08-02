@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import CustomPopup from "./CustomPopup.tsx";
 import * as toiletData from "../../Data/kibelinfo.json";
 
