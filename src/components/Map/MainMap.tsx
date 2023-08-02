@@ -1,5 +1,6 @@
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import CustomPopup from "./CustomPopup.tsx";
+import CustomMarker from "./CustomMarker.tsx";
 import * as toiletData from "../../Data/kibelinfo.json";
 
 const MainMap = () => {
@@ -16,17 +17,13 @@ const MainMap = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {toiletData.toilets.map((toilet) => (
-        <Marker
-          key={toilet.id}
-          position={{ lat: toilet.geolocation[0], lng: toilet.geolocation[1] }}
-        >
-          <CustomPopup
-            geolocation={toilet.geolocation}
-            name={toilet.name}
-            rating={toilet.rating}
-            isFree={toilet.isFree}
-          />
-        </Marker>
+        <CustomMarker
+          id={toilet.id}
+          geolocation={toilet.geolocation}
+          name={toilet.name}
+          rating={toilet.rating}
+          isFree={toilet.isFree}
+        />
       ))}
     </MapContainer>
   );
