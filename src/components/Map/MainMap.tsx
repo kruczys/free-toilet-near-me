@@ -1,5 +1,4 @@
-import { MapContainer, TileLayer, Marker } from "react-leaflet";
-import CustomPopup from "./CustomPopup.tsx";
+import { MapContainer, TileLayer } from "react-leaflet";
 import CustomMarker from "./CustomMarker.tsx";
 import * as toiletData from "../../Data/kibelinfo.json";
 
@@ -9,7 +8,7 @@ const MainMap = () => {
   return (
     <MapContainer
       center={{ lat: centerCords[0], lng: centerCords[1] }}
-      zoom={13}
+      zoom={12}
       className="h-screen"
     >
       <TileLayer
@@ -18,11 +17,12 @@ const MainMap = () => {
       />
       {toiletData.toilets.map((toilet) => (
         <CustomMarker
-          id={toilet.id}
+          key={toilet.id}
           geolocation={toilet.geolocation}
           name={toilet.name}
           rating={toilet.rating}
           isFree={toilet.isFree}
+          type="popup"
         />
       ))}
     </MapContainer>

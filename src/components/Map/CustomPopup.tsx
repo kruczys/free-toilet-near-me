@@ -10,6 +10,7 @@ const CustomPopup = ({ geolocation, name, rating, isFree }) => {
         <a
           href={`https://www.google.com/maps/dir/?api=1&destination=${geolocation[0]}%2C${geolocation[1]}`}
           className="underline"
+          target="_blank"
         >
           Directions
         </a>
