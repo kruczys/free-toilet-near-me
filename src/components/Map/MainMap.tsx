@@ -1,4 +1,5 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import CustomPopup from "./CustomPopup.tsx";
 import * as toiletData from "../../Data/kibelinfo.json";
 
 const MainMap = () => {
@@ -19,15 +20,12 @@ const MainMap = () => {
           key={toilet.id}
           position={{ lat: toilet.geolocation[0], lng: toilet.geolocation[1] }}
         >
-          <Popup>
-            <h2 className="text-xl">{toilet.name}</h2>
-            <p>{toilet.isFree ? "Free to use" : "Pay to use"}</p>
-            <a
-              href={`https://www.google.com/maps/dir/?api=1&destination=${toilet.geolocation[0]}%2C${toilet.geolocation[1]}`}
-            >
-              Directions
-            </a>
-          </Popup>
+          <CustomPopup
+            geolocation={toilet.geolocation}
+            name={toilet.name}
+            rating={toilet.rating}
+            isFree={toilet.isFree}
+          />
         </Marker>
       ))}
     </MapContainer>
