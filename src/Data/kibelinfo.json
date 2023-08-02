@@ -20,6 +20,20 @@
       "name": "Galeria Alfa Centrum",
       "rating": 0.3,
       "isFree": true
+    },
+    {
+      "id": 4,
+      "geolocation": [54.390505315625646, 18.609838929100942],
+      "name": "Galeria Zaspa",
+      "rating": 0.6,
+      "isFree": true
+    },
+    {
+      "id": 5,
+      "geolocation": [54.42288116154815, 18.603422458551563],
+      "name": "Kibel w jelitkowie",
+      "rating": 0.1,
+      "isFree": false
     }
   ]
 }
