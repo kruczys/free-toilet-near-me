@@ -1,4 +1,5 @@
 import { Popup } from "react-leaflet";
+import { FaToilet } from "react-icons/fa";
 
 const CustomPopup = ({ geolocation, name, rating, isFree }) => {
   return (
@@ -14,7 +15,9 @@ const CustomPopup = ({ geolocation, name, rating, isFree }) => {
         >
           Directions
         </a>
-        <p className="text-[#0891b2] underline">Rate</p>
+        <a href="/" className="block underline">
+          Rate
+        </a>
       </div>
     </Popup>
   );

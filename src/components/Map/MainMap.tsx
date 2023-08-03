@@ -1,6 +1,7 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 import CustomMarker from "./CustomMarker.tsx";
 import * as toiletData from "../../Data/kibelinfo.json";
+import FaToilet from "react-icons/fa";
 
 const MainMap = () => {
   const centerCords = [54.38528573727253, 18.609002982471225];
