@@ -66,7 +66,7 @@ const RegisterForm = () => {
         formRegister={register("password")}
         id="registerPassword"
         type="password"
-        onChange={(data) => setPassword(data)}
+        handleChange={(data) => setPassword(data)}
       >
         <BsFillKeyFill></BsFillKeyFill>
         Password
@@ -75,7 +75,7 @@ const RegisterForm = () => {
         formRegister={register("confirmPassword")}
         id="registerConfirmPassword"
         type="password"
-        onChange={(data) => setConfirmPassword(data)}
+        handleChange={(data) => setConfirmPassword(data)}
       >
         <BsFillKeyFill></BsFillKeyFill>
         Confirm password

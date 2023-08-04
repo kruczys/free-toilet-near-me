@@ -1,22 +1,21 @@
-import { HTMLInputTypeAttribute, ReactNode } from "react";
+import { InputHTMLAttributes, ReactNode } from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
 
-interface Props {
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
   formRegister: UseFormRegisterReturn;
   id: string;
-  type: HTMLInputTypeAttribute;
-  errorMessage?: string;
-  onChange?: (value: string) => void;
   children: ReactNode;
+  errorMessage?: string;
+  handleChange?: (value: string) => void;
 }
 
 const FormInput = ({
   formRegister,
   id,
   type,
-  errorMessage,
-  onChange,
   children,
+  errorMessage,
+  handleChange,
 }: Props) => {
   return (
     <div className="mb-4 flex flex-col">
@@ -27,7 +26,7 @@ const FormInput = ({
         {...formRegister}
         id={id}
         type={type}
-        onChange={(e) => onChange && onChange(e.target.value)}
+        onChange={(e) => handleChange && handleChange(e.target.value)}
         className="rounded border-2 border-black px-2 py-1 text-sm focus:rounded focus:border-orange-900 focus:outline-none"
       />
       {errorMessage && <p className="text-xs text-red-500">{errorMessage}</p>}

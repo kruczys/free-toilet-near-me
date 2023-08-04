@@ -18,6 +18,7 @@ const LoginForm = () => {
   const submitAction = (data: FieldValues) => {
     console.log("form submitted", data);
     reset();
+    // TODO: close modal
   };
 
   const submitFailAction = () => {
