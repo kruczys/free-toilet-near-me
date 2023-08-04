@@ -27,7 +27,7 @@ const RegisterForm = () => {
     register,
     reset,
     handleSubmit,
-    formState: { errors },
+    formState: { errors: validationErrors },
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   const submitAction = (data: FieldValues) => {
@@ -48,7 +48,7 @@ const RegisterForm = () => {
         formRegister={register("username")}
         id="registerUsername"
         type="text"
-        errorMessage={errors.username && errors.username.message}
+        errorMessage={validationErrors?.username?.message}
       >
         <BsFillPersonFill></BsFillPersonFill>
         Username
@@ -57,7 +57,7 @@ const RegisterForm = () => {
         formRegister={register("email")}
         id="registerEmail"
         type="email"
-        errorMessage={errors.email && errors.email.message}
+        errorMessage={validationErrors?.email?.message}
       >
         <AiOutlineMail></AiOutlineMail>
         E-mail
