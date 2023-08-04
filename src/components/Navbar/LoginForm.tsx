@@ -11,7 +11,12 @@ const schema = userSchema.pick({ username: true, password: true });
 type FormData = z.infer<typeof schema>;
 
 const LoginForm = () => {
-  const { register, reset, handleSubmit } = useForm<FormData>({
+  const {
+    register,
+    reset,
+    handleSubmit,
+    formState: { errors: validationErrors },
+  } = useForm<FormData>({
     resolver: zodResolver(schema),
   });
 
@@ -24,6 +29,10 @@ const LoginForm = () => {
   const submitFailAction = () => {
     console.log("form error");
   };
+
+  const loginFailMessage =
+    (validationErrors.username || validationErrors.password) &&
+    "Either login or password is incorrect.";
 
   return (
     <form onSubmit={handleSubmit(submitAction, submitFailAction)}>
@@ -39,6 +48,7 @@ const LoginForm = () => {
         formRegister={register("password")}
         id="loginPassword"
         type="password"
+        errorMessage={loginFailMessage}
       >
         <BsFillKeyFill></BsFillKeyFill>
         Password
