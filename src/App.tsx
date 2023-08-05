@@ -3,10 +3,10 @@ import NavBar from "./components/Navbar/NavBar.tsx";
 
 const App = () => {
   return (
-    <div>
+    <>
       <NavBar></NavBar>
       <MainMap></MainMap>
-    </div>
+    </>
   );
 };
 
