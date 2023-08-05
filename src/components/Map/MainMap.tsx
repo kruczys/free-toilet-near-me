@@ -4,19 +4,36 @@ import * as toiletData from "../../Data/kibelinfo.json";
 import FaToilet from "react-icons/fa";
 
 const MainMap = () => {
-  const centerCords = [54.38528573727253, 18.609002982471225];
+  const defaultCords = {
+    lat: 54.38528573727253,
+    lng: 18.609002982471225,
+  }
+
+
+{/* <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
+    <TileLayer
+      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+    />
+    <Marker position={position}>
+      <Popup>
+        A pretty CSS3 popup. <br /> Easily customizable.
+      </Popup>
+    </Marker>
+  </MapContainer> */}
 
   return (
+    
     <MapContainer
-      center={{ lat: centerCords[0], lng: centerCords[1] }}
+      center={defaultCords}
       zoom={12}
       className="h-screen"
     >
       <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      {toiletData.toilets.map((toilet) => (
+      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+    />
+      {/* {toiletData.toilets.map((toilet) => (
         <CustomMarker
           key={toilet.id}
           geolocation={toilet.geolocation}
@@ -25,7 +42,7 @@ const MainMap = () => {
           isFree={toilet.isFree}
           type="popup"
         />
-      ))}
+      ))} */}
     </MapContainer>
   );
 };
