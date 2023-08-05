@@ -16,6 +16,7 @@ const FormInput = ({
   children,
   errorMessage,
   handleChange,
+  ...inputAttributes
 }: Props) => {
   return (
     <div className="mb-4 flex flex-col">
@@ -28,6 +29,7 @@ const FormInput = ({
         type={type}
         onChange={(e) => handleChange && handleChange(e.target.value)}
         className="rounded border-2 border-black px-2 py-1 text-sm focus:rounded focus:border-orange-900 focus:outline-none"
+        {...inputAttributes}
       />
       {errorMessage && <p className="text-xs text-red-500">{errorMessage}</p>}
     </div>
