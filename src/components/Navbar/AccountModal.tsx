@@ -2,11 +2,10 @@ import { BsFillPersonFill } from "react-icons/bs";
 import Modal from "../common/Modal";
 import UserForms from "./UserForms";
 
-interface Props {
-  isUserLoggedIn: boolean;
-}
+const AccountModal = () => {
+  const isUserLoggedIn = false;
+  // future hook
 
-const AccountModal = ({ isUserLoggedIn }: Props) => {
   return (
     <Modal
       buttonContent={

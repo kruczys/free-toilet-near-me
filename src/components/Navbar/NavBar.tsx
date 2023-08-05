@@ -10,7 +10,7 @@ const NavBar = () => {
       <div className="flex items-center gap-2 bg-slate-50 px-1 py-4 shadow-md sm:px-5">
         <Logo />
         <SearchBar />
-        <AccountModal isUserLoggedIn={false}></AccountModal>
+        <AccountModal />
         <AboutModal></AboutModal>
       </div>
     </IconContext.Provider>
