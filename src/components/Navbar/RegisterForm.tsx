@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
-import { FieldValues, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsFillKeyFill, BsFillPersonFill } from "react-icons/bs";
 import { z } from "zod";
@@ -30,12 +30,13 @@ const RegisterForm = () => {
     formState: { errors: validationErrors },
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
-  const submitAction = (data: FieldValues) => {
+  const submitAction = (data: FormData) => {
     console.log("form submitted", data);
 
     reset();
     setPassword("");
     setConfirmPassword("");
+    // TODO: close modal and suggest login
   };
 
   const submitFailAction = () => {
@@ -50,7 +51,7 @@ const RegisterForm = () => {
         type="text"
         errorMessage={validationErrors?.username?.message}
       >
-        <BsFillPersonFill></BsFillPersonFill>
+        <BsFillPersonFill />
         Username
       </FormInput>
       <FormInput
@@ -59,7 +60,7 @@ const RegisterForm = () => {
         type="email"
         errorMessage={validationErrors?.email?.message}
       >
-        <AiOutlineMail></AiOutlineMail>
+        <AiOutlineMail />
         E-mail
       </FormInput>
       <FormInput
@@ -68,7 +69,7 @@ const RegisterForm = () => {
         type="password"
         handleChange={(data) => setPassword(data)}
       >
-        <BsFillKeyFill></BsFillKeyFill>
+        <BsFillKeyFill />
         Password
       </FormInput>
       <FormInput
@@ -77,7 +78,7 @@ const RegisterForm = () => {
         type="password"
         handleChange={(data) => setConfirmPassword(data)}
       >
-        <BsFillKeyFill></BsFillKeyFill>
+        <BsFillKeyFill />
         Confirm password
       </FormInput>
       <PasswordCheckList

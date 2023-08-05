@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FieldValues, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { BsFillKeyFill, BsFillPersonFill } from "react-icons/bs";
 import { z } from "zod";
 import userSchema from "../../schemas/UserSchema";
@@ -20,7 +20,7 @@ const LoginForm = () => {
     resolver: zodResolver(schema),
   });
 
-  const submitAction = (data: FieldValues) => {
+  const submitAction = (data: FormData) => {
     console.log("form submitted", data);
     reset();
     // TODO: close modal
@@ -41,7 +41,7 @@ const LoginForm = () => {
         id="loginUsername"
         type="text"
       >
-        <BsFillPersonFill></BsFillPersonFill>
+        <BsFillPersonFill />
         Login
       </FormInput>
       <FormInput
@@ -50,7 +50,7 @@ const LoginForm = () => {
         type="password"
         errorMessage={loginFailMessage}
       >
-        <BsFillKeyFill></BsFillKeyFill>
+        <BsFillKeyFill />
         Password
       </FormInput>
       <FormButtons>Login</FormButtons>
