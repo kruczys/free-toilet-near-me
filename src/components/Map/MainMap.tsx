@@ -15,7 +15,7 @@ const MainMap = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {toiletData.toilets.map((toilet) => (
-        <CustomMarker {...toilet} />
+        <CustomMarker key={toilet.id} {...toilet} />
       ))}
     </MapContainer>
   );
