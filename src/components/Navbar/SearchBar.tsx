@@ -25,7 +25,7 @@ const SearchBar = ({ onSubmit }: Props) => {
       </button>
       <input
         ref={locationSearch}
-        className="w-full rounded-xl border-2 px-2 py-1 pl-9"
+        className="w-full rounded-xl border-2 px-2 py-1 pl-9 focus:border-black focus:outline-none"
         type="text"
         name="locationSearch"
         id="locationSearch"
