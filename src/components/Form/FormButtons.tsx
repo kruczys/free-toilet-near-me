@@ -11,7 +11,7 @@ const FormButtons = ({ children }: Props) => {
         type="button"
         className="rounded bg-orange-900 px-2 py-1 text-white"
         onClick={() =>
-          document.querySelector<HTMLDialogElement>(".modal")?.close()
+          document.querySelector<HTMLDialogElement>("dialog")?.close()
         }
       >
         Cancel
