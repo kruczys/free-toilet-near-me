@@ -9,9 +9,7 @@ const NavBar = () => {
     <IconContext.Provider value={{ size: "1.5em" }}>
       <div className="flex items-center gap-2 bg-slate-50 px-1 py-4 shadow-md sm:px-5">
         <Logo />
-        <SearchBar
-          onSubmit={(locationText) => console.log(locationText)}
-        ></SearchBar>
+        <SearchBar />
         <AccountModal isUserLoggedIn={false}></AccountModal>
         <AboutModal></AboutModal>
       </div>
