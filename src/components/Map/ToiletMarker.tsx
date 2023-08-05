@@ -1,4 +1,5 @@
 import { Icon } from "leaflet";
+import { BiFlag, BiMap } from "react-icons/bi";
 import { Marker, Popup } from "react-leaflet";
 import { Rating } from "react-simple-star-rating";
 import Toilet from "../../Entities/Toilet.js";
@@ -31,16 +32,22 @@ const CustomMarker = ({
           />
         </div>
         <div className="flex justify-around mt-2">
-          <a
-            href={`https://www.google.com/maps/dir/?api=1&destination=${lat}%2C${lng}`}
-            className="underline"
-            target="_blank"
-          >
-            Guide Me
-          </a>
-          <a href="/" className="block underline">
-            Report
-          </a>
+          <div>
+            <a
+              href={`https://www.google.com/maps/dir/?api=1&destination=${lat}%2C${lng}`}
+              className="flex items-center"
+              target="_blank"
+            >
+              <BiMap />
+              Guide Me
+            </a>
+          </div>
+          <div>
+            <button className="flex items-center text-red-400">
+              <BiFlag />
+              Report
+            </button>
+          </div>
         </div>
       </Popup>
     </Marker>
