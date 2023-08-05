@@ -6,16 +6,13 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   id: string;
   children: ReactNode;
   errorMessage?: string;
-  handleChange?: (value: string) => void;
 }
 
 const FormInput = ({
   formRegister,
   id,
-  type,
   children,
   errorMessage,
-  handleChange,
   ...inputAttributes
 }: Props) => {
   return (
@@ -25,11 +22,9 @@ const FormInput = ({
       </label>
       <input
         {...formRegister}
-        id={id}
-        type={type}
-        onChange={(e) => handleChange && handleChange(e.target.value)}
-        className="rounded border-2 border-black px-2 py-1 text-sm focus:rounded focus:border-orange-900 focus:outline-none"
         {...inputAttributes}
+        id={id}
+        className="rounded border-2 border-black px-2 py-1 text-sm focus:rounded focus:border-orange-900 focus:outline-none"
       />
       {errorMessage && <p className="text-xs text-red-500">{errorMessage}</p>}
     </div>

@@ -1,27 +1,14 @@
 import { AiOutlineCheck } from "react-icons/ai";
 import { RxCross1 } from "react-icons/rx";
-import PasswordChecklist, { RuleNames } from "react-password-checklist";
+import PasswordChecklist, {
+  ReactPasswordChecklistProps,
+} from "react-password-checklist";
 
-interface Props {
-  rules: RuleNames[];
-  minLength: number;
-  password: string;
-  confirmPassword: string;
-}
-
-const PasswordCheckList = ({
-  rules,
-  minLength,
-  password,
-  confirmPassword,
-}: Props) => {
+const PasswordCheckList = (props: ReactPasswordChecklistProps) => {
   return (
     <div className="mb-4 text-xs">
       <PasswordChecklist
-        rules={rules}
-        minLength={minLength}
-        value={password}
-        valueAgain={confirmPassword}
+        {...props}
         iconComponents={{
           ValidIcon: (
             <div className="mr-1">

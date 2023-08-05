@@ -4,13 +4,13 @@ import UserForms from "./UserForms";
 
 const AccountModal = () => {
   const isUserLoggedIn = false;
-  // future hook
+  // TODO: future hook
 
   return (
     <Modal
       buttonContent={
         <>
-          <BsFillPersonFill></BsFillPersonFill>
+          <BsFillPersonFill />
           <span className="hidden sm:block">
             {isUserLoggedIn ? "userData" : "Login"}
           </span>
@@ -18,7 +18,7 @@ const AccountModal = () => {
       }
       buttonAriaLabel={isUserLoggedIn ? "userData" : "Login"}
     >
-      {isUserLoggedIn ? "account modal" : <UserForms></UserForms>}
+      {isUserLoggedIn ? "account modal" : <UserForms />}
     </Modal>
   );
 };

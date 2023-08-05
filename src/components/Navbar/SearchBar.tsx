@@ -18,7 +18,7 @@ const SearchBar = () => {
         className="absolute cursor-pointer pl-2"
         aria-label="search"
       >
-        <ImSearch></ImSearch>
+        <ImSearch />
       </button>
       <input
         {...register("locationSearch")}

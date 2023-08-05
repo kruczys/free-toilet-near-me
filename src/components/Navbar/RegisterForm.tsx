@@ -67,7 +67,7 @@ const RegisterForm = () => {
         formRegister={register("password")}
         id="registerPassword"
         type="password"
-        handleChange={(data) => setPassword(data)}
+        onChange={(e) => setPassword(e.target.value)}
       >
         <BsFillKeyFill />
         Password
@@ -76,7 +76,7 @@ const RegisterForm = () => {
         formRegister={register("confirmPassword")}
         id="registerConfirmPassword"
         type="password"
-        handleChange={(data) => setConfirmPassword(data)}
+        onChange={(e) => setConfirmPassword(e.target.value)}
       >
         <BsFillKeyFill />
         Confirm password
@@ -91,8 +91,8 @@ const RegisterForm = () => {
           "match",
         ]}
         minLength={8}
-        password={password}
-        confirmPassword={confirmPassword}
+        value={password}
+        valueAgain={confirmPassword}
       ></PasswordCheckList>
       <FormButtons>Register</FormButtons>
     </form>
