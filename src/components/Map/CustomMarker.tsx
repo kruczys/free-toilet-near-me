@@ -13,7 +13,6 @@ const CustomMarker = ({
         <h2 className="text-xl">{name}</h2>
         <div>{price === 0 ? "Free" : `${price} PLN`}</div>
         <div>{rating}</div>
-
         <div className="flex justify-around">
           <a
             href={`https://www.google.com/maps/dir/?api=1&destination=${lat}%2C${lng}`}
