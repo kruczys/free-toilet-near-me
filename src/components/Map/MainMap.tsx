@@ -1,7 +1,7 @@
 import { MapContainer, TileLayer, ZoomControl } from "react-leaflet";
 import * as toiletData from "../../Data/kibelinfo.json";
-import CustomMarker from "./CustomMarker.tsx";
 import LocateMe from "./LocateMe.tsx";
+import CustomMarker from "./ToiletMarker.tsx";
 
 const MainMap = () => {
   const startingCords = {

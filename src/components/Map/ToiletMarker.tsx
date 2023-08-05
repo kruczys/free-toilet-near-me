@@ -1,5 +1,7 @@
+import { Icon } from "leaflet";
 import { Marker, Popup } from "react-leaflet";
-import Toilet from "../../Entities/Toilet.ts";
+import Toilet from "../../Entities/Toilet.js";
+import toiletIcon from "../../assets/Icons/toilet.svg";
 
 const CustomMarker = ({
   geolocation: { lat, lng },
@@ -7,8 +9,14 @@ const CustomMarker = ({
   rating,
   price,
 }: Toilet) => {
+  const markerIcon = new Icon({
+    iconUrl: toiletIcon,
+    iconSize: [40, 40],
+    className: "bg-white rounded",
+  }); // TODO: add some padding or change icon
+
   return (
-    <Marker position={{ lat, lng }}>
+    <Marker position={{ lat, lng }} icon={markerIcon}>
       <Popup>
         <h2 className="text-xl">{name}</h2>
         <div>{price === 0 ? "Free" : `${price} PLN`}</div>
