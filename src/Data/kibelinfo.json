@@ -1,0 +1,39 @@
+{
+  "toilets": [
+    {
+      "id": 1,
+      "geolocation": { "lat": 54.3829624299007, "lng": 18.60546116887902 },
+      "name": "Galeria Metropolia",
+      "rating": 0,
+      "price": 0
+    },
+    {
+      "id": 2,
+      "geolocation": { "lat": 54.378195185098654, "lng": 18.606956602949094 },
+      "name": "Galeria Manhattan",
+      "rating": 4,
+      "price": 0
+    },
+    {
+      "id": 3,
+      "geolocation": { "lat": 54.40511835617577, "lng": 18.58794699348846 },
+      "name": "Galeria Alfa Centrum",
+      "rating": 3,
+      "price": 0
+    },
+    {
+      "id": 4,
+      "geolocation": { "lat": 54.390505315625646, "lng": 18.609838929100942 },
+      "name": "Galeria Zaspa",
+      "rating": 4,
+      "price": 0
+    },
+    {
+      "id": 5,
+      "geolocation": { "lat": 54.42288116154815, "lng": 18.603422458551563 },
+      "name": "Kibel w jelitkowie",
+      "rating": 1,
+      "price": 2
+    }
+  ]
+}
