@@ -2,16 +2,15 @@ import { BsFillPersonFill } from "react-icons/bs";
 import Modal from "../common/Modal";
 import UserForms from "./UserForms";
 
-interface Props {
-  isUserLoggedIn: boolean;
-}
+const AccountModal = () => {
+  const isUserLoggedIn = false;
+  // TODO: future hook
 
-const AccountModal = ({ isUserLoggedIn }: Props) => {
   return (
     <Modal
       buttonContent={
         <>
-          <BsFillPersonFill></BsFillPersonFill>
+          <BsFillPersonFill />
           <span className="hidden sm:block">
             {isUserLoggedIn ? "userData" : "Login"}
           </span>
@@ -19,7 +18,7 @@ const AccountModal = ({ isUserLoggedIn }: Props) => {
       }
       buttonAriaLabel={isUserLoggedIn ? "userData" : "Login"}
     >
-      {isUserLoggedIn ? "account modal" : <UserForms></UserForms>}
+      {isUserLoggedIn ? "account modal" : <UserForms />}
     </Modal>
   );
 };

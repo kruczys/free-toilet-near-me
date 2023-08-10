@@ -5,21 +5,20 @@ interface Props {
 }
 
 const FormButtons = ({ children }: Props) => {
+  const buttonStyles = "rounded bg-orange-900 px-2 py-1 text-white";
+
   return (
     <div className="flex justify-around">
       <button
         type="button"
-        className="rounded bg-orange-900 px-2 py-1 text-white"
+        className={buttonStyles}
         onClick={() =>
-          document.querySelector<HTMLDialogElement>(".modal")?.close()
+          document.querySelector<HTMLDialogElement>("dialog")?.close()
         }
       >
         Cancel
       </button>
-      <button
-        type="submit"
-        className="rounded bg-orange-900 px-2 py-1 text-white"
-      >
+      <button type="submit" className={buttonStyles}>
         {children}
       </button>
     </div>

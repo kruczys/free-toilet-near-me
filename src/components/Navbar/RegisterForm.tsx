@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
-import { FieldValues, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsFillKeyFill, BsFillPersonFill } from "react-icons/bs";
 import { z } from "zod";
@@ -27,15 +27,16 @@ const RegisterForm = () => {
     register,
     reset,
     handleSubmit,
-    formState: { errors },
+    formState: { errors: validationErrors },
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
-  const submitAction = (data: FieldValues) => {
+  const submitAction = (data: FormData) => {
     console.log("form submitted", data);
 
     reset();
     setPassword("");
     setConfirmPassword("");
+    // TODO: close modal and suggest login
   };
 
   const submitFailAction = () => {
@@ -48,36 +49,36 @@ const RegisterForm = () => {
         formRegister={register("username")}
         id="registerUsername"
         type="text"
-        errorMessage={errors.username && errors.username.message}
+        errorMessage={validationErrors?.username?.message}
       >
-        <BsFillPersonFill></BsFillPersonFill>
+        <BsFillPersonFill />
         Username
       </FormInput>
       <FormInput
         formRegister={register("email")}
         id="registerEmail"
         type="email"
-        errorMessage={errors.email && errors.email.message}
+        errorMessage={validationErrors?.email?.message}
       >
-        <AiOutlineMail></AiOutlineMail>
+        <AiOutlineMail />
         E-mail
       </FormInput>
       <FormInput
         formRegister={register("password")}
         id="registerPassword"
         type="password"
-        onChange={(data) => setPassword(data)}
+        onChange={(e) => setPassword(e.target.value)}
       >
-        <BsFillKeyFill></BsFillKeyFill>
+        <BsFillKeyFill />
         Password
       </FormInput>
       <FormInput
         formRegister={register("confirmPassword")}
         id="registerConfirmPassword"
         type="password"
-        onChange={(data) => setConfirmPassword(data)}
+        onChange={(e) => setConfirmPassword(e.target.value)}
       >
-        <BsFillKeyFill></BsFillKeyFill>
+        <BsFillKeyFill />
         Confirm password
       </FormInput>
       <PasswordCheckList
@@ -90,8 +91,8 @@ const RegisterForm = () => {
           "match",
         ]}
         minLength={8}
-        password={password}
-        confirmPassword={confirmPassword}
+        value={password}
+        valueAgain={confirmPassword}
       ></PasswordCheckList>
       <FormButtons>Register</FormButtons>
     </form>

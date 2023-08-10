@@ -12,16 +12,15 @@ const Modal = ({ buttonContent, buttonAriaLabel, children }: Props) => {
   const handleDialogClose = (
     e: React.MouseEvent<HTMLDialogElement, MouseEvent>,
   ) => {
-    if (!dialog.current) return;
+    const dialogDimensions = e.currentTarget.getBoundingClientRect();
 
-    const dialogDimensions = dialog.current.getBoundingClientRect();
     if (
       e.clientX < dialogDimensions.left ||
       e.clientX > dialogDimensions.right ||
       e.clientY < dialogDimensions.top ||
       e.clientY > dialogDimensions.bottom
     ) {
-      dialog.current.close();
+      e.currentTarget.close();
     }
   };
 
@@ -36,8 +35,8 @@ const Modal = ({ buttonContent, buttonAriaLabel, children }: Props) => {
       </button>
       <dialog
         ref={dialog}
-        className="modal p-4 text-xl shadow-md sm:px-8"
-        onClick={(e) => handleDialogClose(e)}
+        className="p-4 text-xl shadow-md sm:px-8"
+        onMouseDown={(e) => handleDialogClose(e)}
       >
         {children}
       </dialog>
