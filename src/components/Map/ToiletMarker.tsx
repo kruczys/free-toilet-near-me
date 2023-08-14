@@ -27,7 +27,7 @@ const CustomMarker = ({
             size={25}
             allowFraction={true}
             SVGstyle={{ display: "inline" }}
-            initialValue={rating !== 0 ? rating : 0}
+            initialValue={rating}
             transition={true}
           />
         </div>
