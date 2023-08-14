@@ -1,6 +1,7 @@
 import { MapContainer, TileLayer, ZoomControl } from "react-leaflet";
 import * as toiletData from "../../data/kibelinfo.json";
 import LocateMe from "./LocateMe.tsx";
+import MapControl from "./MapControl.tsx";
 import CustomMarker from "./ToiletMarker.tsx";
 
 const MainMap = () => {
@@ -25,6 +26,7 @@ const MainMap = () => {
       ))}
       <ZoomControl position="bottomright" />
       <LocateMe position="topright" />
+      <MapControl />
     </MapContainer>
   );
 };
