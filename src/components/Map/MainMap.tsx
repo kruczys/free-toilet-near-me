@@ -1,5 +1,5 @@
 import { MapContainer, TileLayer, ZoomControl } from "react-leaflet";
-import * as toiletData from "../../Data/kibelinfo.json";
+import * as toiletData from "../../data/kibelinfo.json";
 import LocateMe from "./LocateMe.tsx";
 import CustomMarker from "./ToiletMarker.tsx";
 
