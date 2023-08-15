@@ -5,6 +5,13 @@ interface putQueryItem<T, P = void> {
   item: T | P;
 }
 
+const axiosInstance = axios.create({
+  baseURL: "http://api.openweathermap.org",
+  params: {
+    appid: import.meta.env.VITE_OPEN_WEATHER_API_KEY,
+  },
+});
+
 class ApiClient<T, P = void> {
   endpoint: string;
 
@@ -13,19 +20,25 @@ class ApiClient<T, P = void> {
   }
 
   getAll = (config?: AxiosRequestConfig) =>
-    axios.get<T[]>(this.endpoint, config).then(({ data }) => data);
+    axiosInstance.get<T[]>(this.endpoint, config).then(({ data }) => data);
 
   getById = (itemId: string, config?: AxiosRequestConfig) =>
-    axios.get<T>(`${this.endpoint}/${itemId}`, config).then(({ data }) => data);
+    axiosInstance
+      .get<T>(`${this.endpoint}/${itemId}`, config)
+      .then(({ data }) => data);
 
   post = (item: T | P) =>
-    axios.post<T>(this.endpoint, item).then(({ data }) => data);
+    axiosInstance.post<T>(this.endpoint, item).then(({ data }) => data);
 
   put = ({ itemId, item }: putQueryItem<T, P>) =>
-    axios.put<T>(`${this.endpoint}/${itemId}`, item).then(({ data }) => data);
+    axiosInstance
+      .put<T>(`${this.endpoint}/${itemId}`, item)
+      .then(({ data }) => data);
 
   delete = (itemId: string) =>
-    axios.delete<T>(`${this.endpoint}/${itemId}`).then(({ data }) => data);
+    axiosInstance
+      .delete<T>(`${this.endpoint}/${itemId}`)
+      .then(({ data }) => data);
 }
 
 export default ApiClient;
