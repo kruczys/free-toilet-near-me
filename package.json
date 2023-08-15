@@ -26,6 +26,8 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.2.0",
+    "@tanstack/react-query": "^4.32.6",
+    "@tanstack/react-query-devtools": "^4.32.6",
     "axios": "^1.4.0",
     "leaflet": "^1.9.4",
     "leaflet.locatecontrol": "^0.79.0",
@@ -39,6 +41,7 @@
     "zod": "^3.22.0"
   },
   "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^4.32.5",
     "@types/leaflet": "^1.9.3",
     "@types/leaflet.locatecontrol": "^0.74.1",
     "@types/react": "^18.2.16",
