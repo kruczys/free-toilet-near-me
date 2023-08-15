@@ -1,11 +1,13 @@
 import { FieldValues, useForm } from "react-hook-form";
 import { ImSearch } from "react-icons/im";
+import useGlobalStore from "../../store";
 
 const SearchBar = () => {
+  const setLocationQuery = useGlobalStore((s) => s.setLocationQuery);
   const { register, handleSubmit } = useForm();
 
   const submitAction = (data: FieldValues) => {
-    console.log(data);
+    setLocationQuery(data.locationSearch);
   };
 
   return (

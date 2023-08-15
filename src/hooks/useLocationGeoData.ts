@@ -3,17 +3,15 @@ import { AxiosError } from "axios";
 import GeocodingData from "../entities/GeocodingData";
 import geocodingClient from "../services/geocodingClient";
 
-const useLocationGeoData = (query: string) =>
+const useLocationGeoData = (locationQuery: string) =>
   useQuery<GeocodingData[], AxiosError>({
-    queryKey: ["location", query],
+    queryKey: ["location", locationQuery],
     queryFn: () =>
       geocodingClient.getAll({
         params: {
-          q: query,
+          q: locationQuery || "Gdansk",
         },
       }),
-    enabled: false,
-    refetchOnWindowFocus: false,
   });
 
 export default useLocationGeoData;
