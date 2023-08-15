@@ -9,6 +9,7 @@ const axiosInstance = axios.create({
   baseURL: "http://api.openweathermap.org",
   params: {
     appid: import.meta.env.VITE_OPEN_WEATHER_API_KEY,
+    limit: "1",
   },
 });
 
