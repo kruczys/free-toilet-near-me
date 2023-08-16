@@ -28,7 +28,7 @@ const SearchBar = () => {
       </button>
       <input
         {...register("locationSearch")}
-        className="w-full rounded-xl border-2 pr-3 py-1 pl-10 focus:border-black focus:outline-none"
+        className="w-full rounded-xl border-2 py-1 pl-10 pr-3 focus:border-black focus:outline-none"
         type="text"
         id="locationSearch"
         placeholder="type your location here..."
