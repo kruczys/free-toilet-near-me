@@ -5,7 +5,7 @@ interface DefaultLocation {
 }
 
 const defaultLocation: DefaultLocation = {
-  name: "Gdansk",
+  name: "gdansk",
   lat: 54.3706858,
   lng: 18.61298210330077,
 };
