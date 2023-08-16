@@ -1,6 +1,6 @@
 import { useMap, useMapEvents } from "react-leaflet";
+import useGlobalStore from "../../globalStore";
 import useLocationGeoData from "../../hooks/useLocationGeoData";
-import useGlobalStore from "../../store";
 
 const MapControl = () => {
   const locationQuery = useGlobalStore((s) => s.locationQuery);

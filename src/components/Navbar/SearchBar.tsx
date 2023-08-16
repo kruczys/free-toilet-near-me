@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { ImSearch } from "react-icons/im";
-import useGlobalStore from "../../store";
+import useGlobalStore from "../../globalStore";
 
 interface SearchBar {
   locationSearch: string;
