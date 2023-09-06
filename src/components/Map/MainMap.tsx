@@ -1,12 +1,14 @@
 import { MapContainer, TileLayer, ZoomControl } from "react-leaflet";
-import * as toiletData from "../../Data/kibelinfo.json";
+import defaultLocation from "../../data/defaultLocation.ts";
+import * as toiletData from "../../data/kibelinfo.json";
 import LocateMe from "./LocateMe.tsx";
+import MapControl from "./MapControl.tsx";
 import CustomMarker from "./ToiletMarker.tsx";
 
 const MainMap = () => {
   const startingCords = {
-    lat: 54.38528573727253,
-    lng: 18.609002982471225,
+    lat: defaultLocation.lat,
+    lng: defaultLocation.lng,
   };
 
   return (
@@ -25,6 +27,7 @@ const MainMap = () => {
       ))}
       <ZoomControl position="bottomright" />
       <LocateMe position="topright" />
+      <MapControl />
     </MapContainer>
   );
 };

@@ -1,5 +1,5 @@
-import MainMap from "./components/Map/MainMap.tsx";
-import NavBar from "./components/Navbar/NavBar.tsx";
+import MainMap from "./components/Map";
+import NavBar from "./components/Navbar";
 
 const App = () => {
   return (

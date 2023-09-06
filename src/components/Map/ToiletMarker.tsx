@@ -2,7 +2,7 @@ import { Icon } from "leaflet";
 import { BiFlag, BiMap } from "react-icons/bi";
 import { Marker, Popup } from "react-leaflet";
 import { Rating } from "react-simple-star-rating";
-import Toilet from "../../Entities/Toilet.js";
+import Toilet from "../../entities/Toilet.js";
 import toiletIcon from "../../assets/Icons/toilet.svg";
 
 const CustomMarker = ({
@@ -27,7 +27,7 @@ const CustomMarker = ({
             size={25}
             allowFraction={true}
             SVGstyle={{ display: "inline" }}
-            initialValue={rating !== 0 ? rating : 0}
+            initialValue={rating}
             transition={true}
           />
         </div>

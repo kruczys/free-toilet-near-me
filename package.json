@@ -25,7 +25,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@hookform/resolvers": "^3.1.1",
+    "@hookform/resolvers": "^3.2.0",
+    "@tanstack/react-query": "^4.32.6",
+    "@tanstack/react-query-devtools": "^4.32.6",
+    "axios": "^1.4.0",
     "leaflet": "^1.9.4",
     "leaflet.locatecontrol": "^0.79.0",
     "react": "^18.2.0",
@@ -35,28 +38,30 @@
     "react-leaflet": "^4.2.1",
     "react-password-checklist": "^1.4.3",
     "react-simple-star-rating": "^5.1.7",
-    "zod": "^3.21.4"
+    "zod": "^3.22.1",
+    "zustand": "^4.4.1"
   },
   "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^4.32.5",
     "@types/leaflet": "^1.9.3",
     "@types/leaflet.locatecontrol": "^0.74.1",
     "@types/react": "^18.2.16",
     "@types/react-dom": "^18.2.7",
-    "@typescript-eslint/eslint-plugin": "^6.2.1",
-    "@typescript-eslint/parser": "^6.2.1",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
     "@vitejs/plugin-react-swc": "^3.3.2",
-    "autoprefixer": "^10.4.14",
-    "eslint": "^8.46.0",
-    "eslint-config-prettier": "^8.10.0",
+    "autoprefixer": "^10.4.15",
+    "eslint": "^8.47.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "eslint-plugin-tailwindcss": "^3.13.0",
-    "postcss": "^8.4.27",
-    "prettier": "^3.0.1",
-    "prettier-plugin-tailwindcss": "^0.4.1",
+    "postcss": "^8.4.28",
+    "prettier": "^3.0.2",
+    "prettier-plugin-tailwindcss": "^0.5.3",
     "tailwindcss": "^3.3.3",
     "typescript": "^5.1.6",
-    "vite": "^4.4.8"
+    "vite": "^4.4.9"
   }
 }
