@@ -8,7 +8,7 @@ import CustomMarker from "./ToiletMarker.tsx";
 const MainMap = () => {
   const startingCords = {
     lat: defaultLocation.lat,
-    lng: defaultLocation.lng,
+    lng: defaultLocation.lon,
   };
 
   return (

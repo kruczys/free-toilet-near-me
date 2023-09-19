@@ -1,12 +1,12 @@
 import { useMap, useMapEvents } from "react-leaflet";
 import useGlobalStore from "../../globalStore";
-import useLocationGeoData from "../../hooks/useLocationGeoData";
 
 const MapControl = () => {
-  const locationQuery = useGlobalStore((s) => s.locationQuery);
-  const { data: location } = useLocationGeoData(locationQuery);
+  const currentLocation = useGlobalStore((s) => s.currentLocation);
+
   const map = useMap();
-  if (location) map.panTo({ lat: location[0].lat, lng: location[0].lon });
+  if (location)
+    map.panTo({ lat: currentLocation.lat, lng: currentLocation.lon });
 
   const mapEvents = useMapEvents({
     zoomlevelschange: () => {

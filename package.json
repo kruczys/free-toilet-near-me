@@ -39,6 +39,7 @@
     "react-password-checklist": "^1.4.3",
     "react-search-autocomplete": "^8.5.2",
     "react-simple-star-rating": "^5.1.7",
+    "use-debounce": "^9.0.4",
     "zod": "^3.22.2",
     "zustand": "^4.4.1"
   },

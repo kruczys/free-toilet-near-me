@@ -1,14 +1,16 @@
 import { create } from "zustand";
+import defaultLocation, { DefaultLocation } from "./data/defaultLocation";
+import GeocodingData from "./entities/GeocodingData";
 
 interface GlobalStore {
-  locationQuery: string;
-  setLocationQuery: (locationQuery: string) => void;
+  currentLocation: GeocodingData | DefaultLocation;
+  setCurrentLocation: (currentLocation: GeocodingData) => void;
 }
 
 const useGlobalStore = create<GlobalStore>((set) => ({
-  locationQuery: "",
-  setLocationQuery: (locationQuery: string) =>
-    set((state) => ({ ...state, locationQuery })),
+  currentLocation: defaultLocation,
+  setCurrentLocation: (currentLocation: GeocodingData) =>
+    set((state) => ({ ...state, currentLocation })),
 }));
 
 export default useGlobalStore;
