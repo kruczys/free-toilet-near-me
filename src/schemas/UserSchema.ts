@@ -15,7 +15,7 @@ const userSchema = z.object({
       new RegExp(
         "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$",
       ),
-      "regex check failed",
+      "try something else",
     ),
   confirmPassword: z
     .string()
@@ -23,7 +23,7 @@ const userSchema = z.object({
       new RegExp(
         "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$",
       ),
-      "regex check failed",
+      "try something else",
     ),
 });
 
