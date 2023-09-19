@@ -3,6 +3,7 @@ import { AxiosError } from "axios";
 import defaultLocation from "../data/defaultLocation";
 import GeocodingData from "../entities/GeocodingData";
 import { geocodingClient } from "../services/geocodingClient";
+import ms from "ms";
 
 const useGeocoding = (locationQuery: string) => {
   const query = locationQuery || defaultLocation.name;
@@ -15,6 +16,7 @@ const useGeocoding = (locationQuery: string) => {
           q: query,
         },
       }),
+    staleTime: ms("1d"),
   });
 };
 
