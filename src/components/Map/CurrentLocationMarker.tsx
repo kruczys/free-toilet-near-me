@@ -1,13 +1,14 @@
-// import { Marker, useMap } from "react-leaflet";
-// import useGlobalStore from "../../globalStore";
-// import useLocationGeoData from "../../hooks/useLocationGeoData";
+import { Marker } from "react-leaflet";
+import defaultLocation from "../../data/defaultLocation";
+import useGlobalStore from "../../globalStore";
 
-// const CurrentLocationMarker = () => {
-//   const currentLocationQuery = useGlobalStore((s) => s.locationQuery);
-//   const { data: currentLocation } = useLocationGeoData(currentLocationQuery);
-//   const map = useMap();
+const CurrentLocationMarker = () => {
+  const currentLocation = useGlobalStore((s) => s.currentLocation);
+  if (currentLocation === defaultLocation) return null;
 
-//   return <Marker position={map.getCenter()} />;
-// };
-// export default CurrentLocationMarker;
-// for future purposes
+  return (
+    <Marker position={{ lat: currentLocation.lat, lng: currentLocation.lon }} />
+  );
+};
+
+export default CurrentLocationMarker;
