@@ -2,13 +2,13 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { ImSearch } from "react-icons/im";
 import { useDebounce } from "use-debounce";
 import useGlobalStore from "../../globalStore";
-import useLocationGeoData from "../../hooks/useLocationGeoData";
+import useGeocoding from "../../hooks/useGeocoding";
 
 const SearchBar = () => {
   const [locationQuery, setLocationQuery] = useState("");
-  const [debouncedLocationQuery] = useDebounce(locationQuery, 500);
+  const [debouncedLocationQuery] = useDebounce(locationQuery, 50); // FIXME: consider removing
 
-  const { data: locationGeoData } = useLocationGeoData(debouncedLocationQuery);
+  const { data: locationGeoData } = useGeocoding(debouncedLocationQuery);
   const setCurrentLocation = useGlobalStore((s) => s.setCurrentLocation);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) =>

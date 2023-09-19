@@ -2,9 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import defaultLocation from "../data/defaultLocation";
 import GeocodingData from "../entities/GeocodingData";
-import { geocodingClient } from "../services/openWeatherClient";
+import { geocodingClient } from "../services/geocodingClient";
 
-const useLocationGeoData = (locationQuery: string) => {
+const useGeocoding = (locationQuery: string) => {
   const query = locationQuery || defaultLocation.name;
 
   return useQuery<GeocodingData[], AxiosError>({
@@ -18,4 +18,4 @@ const useLocationGeoData = (locationQuery: string) => {
   });
 };
 
-export default useLocationGeoData;
+export default useGeocoding;

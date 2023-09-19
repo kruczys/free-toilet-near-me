@@ -1,8 +1,6 @@
 export default interface GeocodingData {
-  name: string;
-  local_names: { [key: string]: string };
+  place_id: number;
+  display_name: string;
   lat: number;
   lon: number;
-  country: string;
-  state: string;
 }
