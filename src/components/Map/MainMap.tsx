@@ -17,7 +17,7 @@ const MainMap = () => {
       center={startingCords}
       zoom={12}
       zoomControl={false}
-      className="h-full"
+      className="z-0 h-full"
     >
       <CurrentLocationMarker />
       <TileLayer

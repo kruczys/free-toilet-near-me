@@ -1,12 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { AxiosError } from "axios";
-import defaultLocation from "../data/defaultLocation";
+import ms from "ms";
 import GeocodingData from "../entities/GeocodingData";
 import { geocodingClient } from "../services/geocodingClient";
-import ms from "ms";
 
 const useGeocoding = (locationQuery: string) => {
-  const query = locationQuery || defaultLocation.name;
+  const query = locationQuery || "";
 
   return useQuery<GeocodingData[], AxiosError>({
     queryKey: ["location", query],

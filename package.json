@@ -5,7 +5,7 @@
   },
   "contributors": [
     {
-      "name": "Paweł Koziczkowiski",
+      "name": "Paw565pl",
       "email": ""
     },
     {
@@ -38,7 +38,6 @@
     "react-icons": "^4.11.0",
     "react-leaflet": "^4.2.1",
     "react-password-checklist": "^1.4.3",
-    "react-search-autocomplete": "^8.5.2",
     "react-simple-star-rating": "^5.1.7",
     "use-debounce": "^9.0.4",
     "zod": "^3.22.2",
