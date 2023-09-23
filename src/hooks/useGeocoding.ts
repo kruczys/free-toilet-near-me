@@ -5,7 +5,7 @@ import GeocodingData from "../entities/GeocodingData";
 import { geocodingClient } from "../services/geocodingClient";
 
 const useGeocoding = (locationQuery: string) => {
-  const query = locationQuery || "";
+  const query = locationQuery.toLocaleLowerCase() || "";
 
   return useQuery<GeocodingData[], AxiosError>({
     queryKey: ["location", query],
