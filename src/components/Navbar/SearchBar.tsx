@@ -1,85 +1,131 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { useMemo, useState } from "react";
 import { ImSearch } from "react-icons/im";
+import { MdOutlineClear } from "react-icons/md";
+import Select, {
+  CSSObjectWithLabel,
+  ControlProps,
+  GroupBase,
+  InputActionMeta,
+  InputProps,
+  Theme,
+  components,
+} from "react-select";
 import { useDebounce } from "use-debounce";
+import GeocodingData from "../../entities/GeocodingData";
 import useGlobalStore from "../../globalStore";
 import useGeocoding from "../../hooks/useGeocoding";
 
+interface SelectOptionType {
+  value: GeocodingData;
+  label: string;
+}
+
+const Input = (props: InputProps<SelectOptionType, false>) => (
+  <components.Input {...props} isHidden={false} />
+);
+const DropdownIndicator = () => null;
+const IndicatorSeparator = () => null;
+
 const SearchBar = () => {
-  const [isSearchInputFocused, setIsSearchInputFocused] = useState(false);
   const [locationQuery, setLocationQuery] = useState("");
-  const [debouncedLocationQuery] = useDebounce(locationQuery, 100); // FIXME: consider increasing
+  const [debouncedLocationQuery] = useDebounce(locationQuery, 200);
+
+  const [selectValue, setSelectValue] = useState<SelectOptionType>(
+    {} as SelectOptionType,
+  );
 
   const setCurrentLocation = useGlobalStore((s) => s.setCurrentLocation);
-  const { data: locations } = useGeocoding(debouncedLocationQuery);
+  const { data: locations, isLoading } = useGeocoding(debouncedLocationQuery);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const input = e.target.value.toLocaleLowerCase();
-    if (input && input.length > 1) setLocationQuery(input);
-  };
+  const selectOptions: SelectOptionType[] = useMemo(
+    () =>
+      locations?.map((loc) => ({ value: loc, label: loc.display_name })) || [],
+    [locations],
+  );
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (locations && locations[0]) {
-      setCurrentLocation(locations[0]);
-      setLocationQuery("");
+  const handleChange = (selectedOption: SelectOptionType | null) => {
+    if (selectedOption) {
+      setCurrentLocation(selectedOption.value);
+      setLocationQuery(selectedOption.label);
+      setSelectValue(selectedOption);
     }
   };
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    const selectedPlaceId = e.currentTarget.getAttribute("data-place-id");
-    const selectedLocation = locations?.find(
-      (loc) => loc.place_id === parseInt(selectedPlaceId || ""),
-    );
-
-    if (selectedLocation) {
-      setCurrentLocation(selectedLocation);
-      setLocationQuery("");
-    }
+  const handleInputChange = (input: string, { action }: InputActionMeta) => {
+    if (action === "input-change") setLocationQuery(input);
   };
 
-  const handleFocus = (e: React.FocusEvent<HTMLInputElement, Element>) => {
-    setIsSearchInputFocused(true);
-    const input = e.target.value.toLocaleLowerCase();
-    setLocationQuery(input);
+  const handleReset = () => {
+    setLocationQuery("");
+    setSelectValue({} as SelectOptionType);
   };
 
-  // TODO: ogarnac strzalki w dropdown
+  const selectTheme = (theme: Theme) => ({
+    ...theme,
+    colors: {
+      ...theme.colors,
+      primary25: "#e2e8f0", // active color
+      primary: "#94a3b8", // selected value color
+    },
+  });
 
-  const showSearchResults = isSearchInputFocused && !!locationQuery;
+  const selectStyles = {
+    container: (baseStyles: CSSObjectWithLabel) => ({
+      ...baseStyles,
+      width: "100px", // disables infinite resizing while typing
+    }),
+    control: (
+      baseStyles: CSSObjectWithLabel,
+      state: ControlProps<SelectOptionType, false, GroupBase<SelectOptionType>>,
+    ) => ({
+      ...baseStyles,
+      border: "none",
+      boxShadow: "none",
+      outline: state.isFocused ? "2px solid black" : "2px solid #e5e7eb",
+      borderRadius: "0.75rem",
+      cursor: "text",
+      paddingLeft: "2.5rem",
+      paddingRight: "1.875rem",
+    }),
+    option: (baseStyles: CSSObjectWithLabel) => ({
+      ...baseStyles,
+      fontSize: "0.875rem",
+      padding: "0.5rem 0.75rem",
+      cursor: "pointer",
+    }),
+  };
 
   return (
-    <div className="relative ml-1 flex w-full flex-col justify-center">
-      <form onSubmit={handleSubmit} className="flex items-center">
-        <button
-          type="submit"
-          className="absolute cursor-pointer pl-2"
-          aria-label="search"
-        >
-          <ImSearch />
-        </button>
-        <input
-          onChange={handleChange}
-          onFocus={handleFocus}
-          className="w-full rounded-xl border-2 py-1 pl-10 pr-3 focus:border-black focus:outline-none"
-          type="text"
-          placeholder="type your location here..."
-        />
-      </form>
-      {showSearchResults && (
-        <div className="absolute inset-x-0 top-9 z-10 mx-auto cursor-pointer divide-y  divide-gray-400 rounded-sm bg-white px-3 py-1 text-sm">
-          {locations?.map((loc) => (
-            <button
-              key={loc.place_id}
-              data-place-id={loc.place_id.toString()}
-              className="w-full px-1 py-2 text-left hover:bg-slate-100"
-              onClick={handleClick}
-            >
-              {loc.display_name}
-            </button>
-          ))}
-        </div>
-      )}
+    <div className="relative ml-1 flex w-full items-center justify-center">
+      <div className="absolute left-3 z-10">
+        <ImSearch />
+      </div>
+      <Select
+        filterOption={null}
+        controlShouldRenderValue={false}
+        options={selectOptions}
+        isLoading={isLoading}
+        className="min-w-full"
+        placeholder="type your location here"
+        value={selectValue}
+        inputValue={locationQuery}
+        onChange={handleChange}
+        onInputChange={handleInputChange}
+        theme={selectTheme}
+        styles={selectStyles}
+        components={{
+          Input,
+          DropdownIndicator,
+          IndicatorSeparator,
+        }}
+      />
+      <button
+        onClick={handleReset}
+        className="absolute right-2"
+        aria-label="reset location search"
+      >
+        <MdOutlineClear color="#	6B7280" fontSize="0.75rem" />
+      </button>
     </div>
   );
 };
