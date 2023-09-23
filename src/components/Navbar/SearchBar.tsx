@@ -43,7 +43,7 @@ const SearchBar = () => {
     [locations],
   );
 
-  const handleChange = (selectedOption: SelectOptionType | null) => {
+  const handleSelect = (selectedOption: SelectOptionType | null) => {
     if (selectedOption) {
       setCurrentLocation(selectedOption.value);
       setLocationQuery(selectedOption.label);
@@ -110,7 +110,7 @@ const SearchBar = () => {
         placeholder="type your location here"
         value={selectValue}
         inputValue={locationQuery}
-        onChange={handleChange}
+        onChange={handleSelect}
         onInputChange={handleInputChange}
         theme={selectTheme}
         styles={selectStyles}
