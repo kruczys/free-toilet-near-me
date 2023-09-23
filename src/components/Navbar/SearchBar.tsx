@@ -56,6 +56,7 @@ const SearchBar = () => {
   };
 
   const handleReset = () => {
+    setCurrentLocation({} as GeocodingData);
     setLocationQuery("");
     setSelectValue({} as SelectOptionType);
   };
@@ -124,7 +125,7 @@ const SearchBar = () => {
         className="absolute right-2"
         aria-label="reset location search"
       >
-        <MdOutlineClear color="#	6B7280" fontSize="0.75rem" />
+        <MdOutlineClear color="#6B7280" fontSize="0.75rem" />
       </button>
     </div>
   );

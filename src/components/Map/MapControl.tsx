@@ -3,11 +3,7 @@ import useGlobalStore from "../../globalStore";
 
 const MapControl = () => {
   const currentLocation = useGlobalStore((s) => s.currentLocation);
-
   const map = useMap();
-  if (location)
-    map.panTo({ lat: currentLocation.lat, lng: currentLocation.lon });
-
   const mapEvents = useMapEvents({
     zoomlevelschange: () => {
       mapEvents.locate();
@@ -16,6 +12,9 @@ const MapControl = () => {
       mapEvents.panTo(location.latlng);
     },
   });
+
+  if (currentLocation.lat && currentLocation.lon)
+    map.panTo({ lat: currentLocation.lat, lng: currentLocation.lon });
 
   return null;
 };
