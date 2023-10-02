@@ -1,6 +1,7 @@
 import { MapContainer, TileLayer, ZoomControl } from "react-leaflet";
 import defaultLocation from "../../data/defaultLocation.ts";
 import * as toiletData from "../../data/kibelinfo.json";
+import CurrentLocationMarker from "./CurrentLocationMarker.tsx";
 import LocateMe from "./LocateMe.tsx";
 import MapControl from "./MapControl.tsx";
 import CustomMarker from "./ToiletMarker.tsx";
@@ -8,7 +9,7 @@ import CustomMarker from "./ToiletMarker.tsx";
 const MainMap = () => {
   const startingCords = {
     lat: defaultLocation.lat,
-    lng: defaultLocation.lng,
+    lng: defaultLocation.lon,
   };
 
   return (
@@ -16,8 +17,9 @@ const MainMap = () => {
       center={startingCords}
       zoom={12}
       zoomControl={false}
-      className="h-full"
+      className="z-0 h-full"
     >
+      <CurrentLocationMarker />
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
